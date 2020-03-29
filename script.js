@@ -2,6 +2,8 @@ const
 cardsContainer = document.getElementById('cards-container'),
 prevBtn = document.getElementById('prev'),
 nextBtn = document.getElementById('next'),
+firstBtn = document.getElementById('first'),
+lastBtn = document.getElementById('last'),
 currentEl = document.getElementById('current'),
 showBtn = document.getElementById('show'),
 hideBtn = document.getElementById('hide'),
@@ -78,3 +80,57 @@ function updateCurrentText() {
 }
 
 createCards();
+
+
+// Event listeners
+
+nextBtn.addEventListener('click', () => {
+  cardsEl[currentActiveCard].className = 'card left';
+
+  currentActiveCard = currentActiveCard + 1;
+
+  if (currentActiveCard > cardsEl.length - 1) {
+    currentActiveCard = cardsEl.length - 1;
+  }
+
+
+  cardsEl[currentActiveCard].className = 'card active';
+
+  updateCurrentText();
+});
+
+prevBtn.addEventListener('click', () => {
+  cardsEl[currentActiveCard].className = 'card right';
+
+  currentActiveCard = currentActiveCard - 1;
+
+  if (currentActiveCard < 0) {
+    currentActiveCard = 0;
+  }
+
+
+  cardsEl[currentActiveCard].className = 'card active';
+
+  updateCurrentText();
+});
+
+firstBtn.addEventListener('click', () => {
+  cardsEl[currentActiveCard].className = 'card left';
+
+  currentActiveCard = 0;
+
+
+  cardsEl[currentActiveCard].className = 'card active';
+
+  updateCurrentText();
+});
+
+lastBtn.addEventListener('click', () => {
+  cardsEl[currentActiveCard].className = 'card right';
+
+  currentActiveCard = cardsEl.length - 1;
+
+  cardsEl[currentActiveCard].className = 'card active';
+
+  updateCurrentText();
+})
