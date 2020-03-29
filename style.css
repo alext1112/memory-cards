@@ -169,6 +169,10 @@ h1 button {
   transition: 0.3 ease;
 }
 
+button {
+  outline: 0;
+}
+
 .add-container.show {
   opacity: 1;
   z-index: 2;
@@ -190,4 +194,27 @@ h1 button {
   padding: 12px;
   min-width: 500px;
   max-width: 100%;
+}
+
+@media (max-width: 510px) {
+  .cards {
+    width: 400px;
+  }
+
+  .btn-small {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  .cards {
+    width: 350px;
+  }
+
+  h1 {
+    position: absolute;
+    top: 150px;
+    left: 10px;
+  }
 }
